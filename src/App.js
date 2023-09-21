@@ -3,6 +3,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 import Header from './components/Header';
 import Banner from './components/Banner';
+import Categories from './components/Categories';
 
 const theme = createTheme({
   palette: {
@@ -43,6 +44,7 @@ function App() {
     <div className="App">
       <Header />
       <Banner />
+      <Categories />
 
     </div>
     </ThemeProvider >
