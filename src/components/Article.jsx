@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import './Articale.css';
+
+import './Article.css';
+
+// import Paper from '@mui/material/Paper';
 
 function Articale(probs) {
   const [isHovered, setIsHovered] = useState(false);

@@ -4,6 +4,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Header from './components/Header';
 import Banner from './components/Banner';
 import Categories from './components/Categories';
+import Products from './components/Products';
 
 const theme = createTheme({
   palette: {
@@ -45,7 +46,7 @@ function App() {
       <Header />
       <Banner />
       <Categories />
-
+      <Products />
     </div>
     </ThemeProvider >
   );

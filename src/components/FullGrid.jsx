@@ -2,6 +2,10 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
 
+import articles from '../articles';
+
+import Article from './Article';
+
 export default function FullBorderedGrid() {
   return (
     <Box sx={{ flexGrow: 1, p: 2 }}>
@@ -9,8 +13,16 @@ export default function FullBorderedGrid() {
         container
         spacing={2}
       >
-        {[...Array(6)].map((_, index) => (
-          <Grid key={index} {...{ xs: 12, sm: 6, md: 4, lg: 3 }} minHeight={160} />
+        {articles.map((article, index) => (
+          <Grid key={index} {...{ xs: 12, sm: 6, md: 4, lg: 3 }} minHeight={160} >
+            <Article 
+              title={article.title} 
+              price={article.price} 
+              image={article.image} 
+              hoverImage={article.hoverImage}
+            />
+          </Grid>
+          
         ))}
       </Grid>
     </Box>
