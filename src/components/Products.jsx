@@ -3,6 +3,7 @@ import * as React from 'react';
 import Pagination from '@mui/material/Pagination';
 
 import './Products.css';
+import articles from '../articles';
 
 
 export default function Products() {
@@ -13,10 +14,14 @@ export default function Products() {
     setPage(value);
   };
 
+  const numberPages = Math.ceil(articles.length / 12);
+
+
   return (
     <div className='Products'>
-      <FullGrid />
-      <Pagination count={10} page={page} onChange={handleChange} />
+      <h2 className='Products__title'>Featured Products</h2>
+      <FullGrid page={page}/>
+      <Pagination count={numberPages} page={page} onChange={handleChange} />
     </div>
   );
 }

@@ -4,24 +4,33 @@ import './Article.css';
 
 // import Paper from '@mui/material/Paper';
 
-function Articale(probs) {
+function Article(props) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
-      className='articale'
+      className='article'
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <img
-        className='articale__image'
-        src={isHovered ? probs.hoverImage : probs.image}
-        alt={probs.title}
-      />
-      <h3 className='articale__title'>{probs.title}</h3>
-      <p className='articale__price'>{probs.price}</p>
+
+<img
+    data-visible={isHovered}
+    className="article__image absolute"
+    src={props.hoverImage}
+    alt={props.title}
+  />
+  <img
+    data-visible={!isHovered}
+    className="article__image"
+    src={props.image}
+    alt={props.title}
+  />
+
+      <h3 className='article__title'>{props.title}</h3>
+      <p className='article__price'>{props.price}</p>
     </div>
   );
 }
 
-export default Articale;
+export default Article;

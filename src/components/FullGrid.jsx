@@ -6,14 +6,24 @@ import articles from '../articles';
 
 import Article from './Article';
 
-export default function FullBorderedGrid() {
+export default function FullBorderedGrid(props) {
+
+  
+  const currentPage = props.page;
+  const itemsPerPage = 12;
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = articles.slice(indexOfFirstItem, indexOfLastItem);
+
+
+
   return (
     <Box sx={{ flexGrow: 1, p: 2 }}>
       <Grid
         container
         spacing={2}
       >
-        {articles.map((article, index) => (
+        {currentItems.map((article, index) => (
           <Grid key={index} {...{ xs: 12, sm: 6, md: 4, lg: 3 }} minHeight={160} >
             <Article 
               title={article.title} 

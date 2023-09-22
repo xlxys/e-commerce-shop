@@ -3,7 +3,7 @@ const articles = [
     title: 'Article 1',
     price: "$10",
     image: "/images/products/C1_face.png",
-    hoverImage: "/images/products/C1_close.png"
+    hoverImage: "/images/products/C1_back.png"
   },
   {
     title: 'Article 2',
@@ -62,8 +62,8 @@ const articles = [
   {
     title: 'Article 3',
     price: "$30",
-    image: "/images/products/J_face (1).png",
-    hoverImage: "/images/products/J_close (1).png"
+    image: "/images/products/J_face (9).png",
+    hoverImage: "/images/products/J_close (9).png"
   },
   {
     title: 'Article 3',
@@ -80,7 +80,7 @@ const articles = [
   {
     title: 'Article 3',
     price: "$30",
-    image: "/images/products/J_face (13).png",
+    image: "/images/products/J_face (3).png",
     hoverImage: "/images/products/J_close (3).png"
   },
   {

@@ -1,4 +1,15 @@
 .Products{
-    width: 100%;
+    width: auto;
     height: 100%;
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+.Products__title{
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
