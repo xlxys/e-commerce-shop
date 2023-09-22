@@ -1,6 +1,6 @@
 .Products{
     width: auto;
-    height: 100%;
+    height: auto;
     margin: 30px;
     display: flex;
     flex-direction: column;

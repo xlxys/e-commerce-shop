@@ -1,4 +1,5 @@
 import FullGrid from './FullGrid';
+import Footer from './Footer';
 import * as React from 'react';
 import Pagination from '@mui/material/Pagination';
 
