@@ -7,6 +7,7 @@ import Categories from './components/Categories';
 import Products from './components/Products';
 import Footer from './components/Footer';
 
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -83,6 +84,7 @@ function App() {
       <Categories />
       <Products />
       <Footer />
+
     </div>
     </ThemeProvider >
   );

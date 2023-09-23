@@ -13,6 +13,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
+import Cart from './Cart';
+
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Sign out'];
 
@@ -130,9 +132,7 @@ function Header() {
             <i className="fa-solid fa-magnifying-glass fa-xs" style={{color: "#f1efef"}}></i>
           </IconButton>
          
-          <IconButton size="large" aria-label="search" color="inherit">
-          <i className="fa-solid fa-cart-shopping fa-xs" style={{color: "#f1efef"}}></i>
-          </IconButton>
+          <Cart/> 
 
 
           <Box sx={{ flexGrow: 0 }}>

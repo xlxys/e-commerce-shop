@@ -1,0 +1,21 @@
+.list__name{
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+}
+
+.list__name h2{
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 10px;
+  padding: 0;
+  color: #61677A;
+  font-family: sans-serif;
+  cursor: pointer;
+}
+
+.selected {
+  text-decoration: underline;
+  color: #161617 !important;
+}
+

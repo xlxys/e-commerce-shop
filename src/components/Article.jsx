@@ -8,6 +8,14 @@ import Paper from '@mui/material/Paper';
 function Article(props) {
   const [isHovered, setIsHovered] = useState(false);
 
+  const addToCart = () => {
+    props.addToCart(props.id);
+  }
+
+  const addToWishList = () => {
+    props.addToWishList(props.id);
+  }
+
   return (
     <Paper elevation={3} >
     <div
@@ -29,8 +37,8 @@ function Article(props) {
         alt={props.title}
       />
       <div className='article__overlay' >
-        <div hidden={!isHovered} className='article__button'><i className="fa-solid fa-cart-plus" style={{color: "#ffffff"}}></i></div>
-        <div hidden={!isHovered} className='article__button'><i className="fa-solid fa-heart-circle-plus" style={{color: "#ffffff"}}></i></div>
+        <div hidden={!isHovered} className='article__button' onClick={addToCart}><i className="fa-solid fa-cart-plus" style={{color: "#ffffff"}}></i></div>
+        <div hidden={!isHovered} className='article__button' onClick={addToWishList}><i className="fa-solid fa-heart-circle-plus" style={{color: "#ffffff"}}></i></div>
         {/* <button className='article__button'><i className="fa-solid fa-heart-circle-check"></i></button> */}
       </div>
 
