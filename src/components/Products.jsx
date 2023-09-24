@@ -1,16 +1,16 @@
+import { useState } from 'react';
+
 import FullGrid from './FullGrid';
-import Footer from './Footer';
-import * as React from 'react';
 import Pagination from '@mui/material/Pagination';
 
 import './Products.css';
-import articles from '../articles';
+import articles from '../data/articles';
 
 
 export default function Products() {
 
   
-  const [page, setPage] = React.useState(1);
+  const [page, setPage] = useState(1);
   const handleChange = (event, value) => {
     setPage(value);
   };

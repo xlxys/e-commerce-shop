@@ -1,8 +1,7 @@
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
 
-import articles from '../articles';
+import articles from '../data/articles';
 
 import Article from './Article';
 
@@ -26,6 +25,7 @@ export default function FullBorderedGrid(props) {
         {currentItems.map((article, index) => (
           <Grid key={index} {...{ xs: 12, sm: 6, md: 4, lg: 3 }} minHeight={160} >
             <Article 
+              id={article.id}
               title={article.title} 
               price={article.price} 
               image={article.image} 

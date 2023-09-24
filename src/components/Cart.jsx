@@ -1,4 +1,4 @@
-import {useState, Fragment} from 'react';
+import {useState} from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/Button';
@@ -11,10 +11,6 @@ export default function TemporaryDrawer() {
   const [state, setState] = useState({
     right: false,
   });
-
-  const cart = []
-  const wishList = []
-
 
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -61,7 +57,7 @@ export default function TemporaryDrawer() {
 
   return (
     <div>
-        <Fragment key={'right'}> 
+        <> 
           <IconButton onClick={toggleDrawer('right', true)} size="large" aria-label="search" color="inherit">
             <i className="fa-solid fa-cart-shopping fa-xl" style={{color: "#f1efef"}}></i>
           </IconButton>
@@ -72,7 +68,7 @@ export default function TemporaryDrawer() {
           >
             {list('right')}
           </Drawer>
-        </Fragment>
+        </>
 
     </div>
   );
