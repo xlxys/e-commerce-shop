@@ -24,11 +24,11 @@ export default function Banner() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // const prevSlide = () => {
-  //   const isFirstSlide = currentIndex === 0;
-  //   const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
-  //   setCurrentIndex(newIndex);
-  // };
+  const prevSlide = () => {
+    const isFirstSlide = currentIndex === 0;
+    const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
+    setCurrentIndex(newIndex);
+  };
 
   const nextSlide = () => {
     const isLastSlide = currentIndex === slides.length - 1;
@@ -36,7 +36,7 @@ export default function Banner() {
     setCurrentIndex(newIndex);
   };
 
-  const goToSlide = (slideIndex) => {
+  const goToSlide = (slideIndex: number) => {
     setCurrentIndex(slideIndex);
   };
 
@@ -52,9 +52,9 @@ export default function Banner() {
     <div className="Slider">
       <div className='Slides' style={{ backgroundImage: `url(${slides[currentIndex].url})` }}>
 
-{/*    
+   
           <button className="SlideButton left" onClick={prevSlide}><i className="fa-solid fa-angle-up fa-rotate-270 fa-lg" style={{color: "#ffffff"}}></i></button>
-          <button className="SlideButton right" onClick={nextSlide}><i className="fa-solid fa-angle-up fa-rotate-90 fa-lg" style={{color: "#ffffff"}}></i></button> */}
+          <button className="SlideButton right" onClick={nextSlide}><i className="fa-solid fa-angle-up fa-rotate-90 fa-lg" style={{color: "#ffffff"}}></i></button>
 
 
         <div className="SlideText">

@@ -63,7 +63,7 @@
     background-color: #444444;
 }
 
-/* .SlideButton {
+.SlideButton {
     position: absolute;
     display: flex;
     flex-direction: row;
@@ -73,15 +73,14 @@
     outline: none;
     cursor: pointer;
     background-color: transparent;
+    bottom: 50%;
 }
 .left {
-    bottom: 50%;
     left: 2%;
 }
 .right {
-    bottom: 50%;
     right: 2%;
-} */
+}
 
 
 

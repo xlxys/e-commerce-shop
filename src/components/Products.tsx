@@ -4,14 +4,14 @@ import FullGrid from './FullGrid';
 import Pagination from '@mui/material/Pagination';
 
 import './Products.css';
-import articles from '../data/articles';
+import articles from '../data/articles.json';
 
 
 export default function Products() {
 
   
   const [page, setPage] = useState(1);
-  const handleChange = (event, value) => {
+  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
   };
 

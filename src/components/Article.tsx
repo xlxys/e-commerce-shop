@@ -6,7 +6,15 @@ import Paper from '@mui/material/Paper';
 
 
 
-function Article(props) {
+interface ArticleProps {
+  id : number;
+  title: string;
+  price: string;
+  image: string;
+  hoverImage: string;
+}
+
+function Article(props: ArticleProps) {
   const [isHovered, setIsHovered] = useState(false);
 
 

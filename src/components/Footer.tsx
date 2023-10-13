@@ -17,9 +17,14 @@ export default function Footer() {
 
 
       <div className="footer-newsletter">
-        <p>Newsletter Subscription</p>
+        <p>Our Newsletter :</p>
         <TextField sx={{ input: { color: '#fff' } }} id="outlined-basic" label="Email" variant="outlined" />
-        <Button variant="outlined" color="white" >Subscribe</Button>
+        <Button 
+          variant="outlined" 
+          sx={{ color: '#fff', borderColor: '#fff' }}
+        >
+        Subscribe
+        </Button>
       </div>
 
 

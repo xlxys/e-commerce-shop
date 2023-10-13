@@ -1,11 +1,15 @@
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
 
-import articles from '../data/articles';
+import articles from '../data/articles.json';
 
 import Article from './Article';
 
-export default function FullBorderedGrid(props) {
+interface FullBorderedGridProps {
+  page: number;
+}
+
+export default function FullBorderedGrid(props: FullBorderedGridProps) {
 
   
   const currentPage = props.page;

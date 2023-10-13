@@ -1,5 +1,4 @@
 import "./Categories.css";
-import CategorieCard from "./Card";
 import Card from "./Card";
 
 const categoriesList = [

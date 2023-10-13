@@ -1,5 +1,7 @@
-import './App.css';
+
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+import "./App.css"
 
 import Header from './components/Header';
 import Banner from './components/Banner';
@@ -19,10 +21,7 @@ const theme = createTheme({
     secondary: {
       main: '#5B9A8B',
       light: '#F7E987',
-    },
-    white: {
-      main: '#f1efef',
-    },
+    }
   },
   components: {
     MuiTextField: {
@@ -84,7 +83,6 @@ function App() {
       <Categories />
       <Products />
       <Footer />
-
     </div>
     </ThemeProvider >
   );

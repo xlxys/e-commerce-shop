@@ -1,5 +1,7 @@
 import {useState} from 'react';
 
+import "./Header.css"
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -19,13 +21,13 @@ const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Sign out'];
 
 function Header() {
-  const [anchorElNav, setAnchorElNav] = useState(null);
-  const [anchorElUser, setAnchorElUser] = useState(null);
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
-  const handleOpenNavMenu = (event) => {
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
+  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
 
@@ -37,8 +39,9 @@ function Header() {
     setAnchorElUser(null);
   };
 
+
   return (
-    <AppBar color="transparent" position="absolute">
+    <AppBar className='NavBar' color="transparent" position="absolute">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           
@@ -67,7 +70,7 @@ function Header() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="primary.contrastText"
+              sx={{ color: 'primary.contrastText' }}
             >
               <MenuIcon />
             </IconButton>
@@ -119,14 +122,16 @@ function Header() {
             {pages.map((page) => (
               <Button
                 key={page}
-                fontFamily="Open Sans"
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'primary.contrastText', display: 'block' }}
+                sx={{ my: 2, color: 'primary.contrastText', display: 'block', fontFamily: 'Open Sans' }}
+                component="a"
+                href="/"
               >
                 {page}
               </Button>
             ))}
           </Box>
+
 
           <IconButton size="large" aria-label="search" color="inherit">
             <i className="fa-solid fa-magnifying-glass fa-xs" style={{color: "#f1efef"}}></i>

@@ -2,7 +2,12 @@ import { useState } from "react";
 
 import "./Card.css";
 
-export default function Card(probs) {
+interface CardProps {
+  title: string;
+  image: string;
+}
+
+export default function Card(props: CardProps) {
 
   const [isHovered, setIsHovered] = useState(false);
 
@@ -19,7 +24,7 @@ export default function Card(probs) {
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}>
       <div className="card__image"
-        style={{ backgroundImage: `url(${probs.image})` }}>
+        style={{ backgroundImage: `url(${props.image})` }}>
       </div>
       {isHovered
         ? (<div className="card__title">
@@ -29,7 +34,7 @@ export default function Card(probs) {
           </div>
         </div>)
         : (<div className="card__title">
-          {probs.title}
+          {props.title}
         </div>)
       }
 
