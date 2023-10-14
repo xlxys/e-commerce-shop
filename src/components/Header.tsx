@@ -42,8 +42,8 @@ function Header() {
 
   return (
     <AppBar className='NavBar' color="transparent" position="absolute">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
+      <Container maxWidth="xl" disableGutters>
+        <Toolbar >
           
           <Typography
             variant="h6"
@@ -133,14 +133,14 @@ function Header() {
           </Box>
 
 
-          <IconButton size="large" aria-label="search" color="inherit">
+          <IconButton aria-label="search" color="inherit">
             <i className="fa-solid fa-magnifying-glass fa-xs" style={{color: "#f1efef"}}></i>
           </IconButton>
          
           <Cart/> 
 
 
-          <Box sx={{ flexGrow: 0 }}>
+          <Box sx={{ flexGrow: 0 , margin:"10px"}}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/images/avatar/1.jpg" />

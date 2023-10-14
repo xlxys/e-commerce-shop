@@ -5,6 +5,7 @@ import articles from '../data/articles.json';
 
 import Article from './Article';
 
+
 interface FullBorderedGridProps {
   page: number;
 }

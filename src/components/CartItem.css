@@ -1,11 +1,39 @@
 .CartItem{
+    padding: 10px;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    gap: 1rem;
+}
+
+.CartItem__info{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.CartItem__description{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.CartItem__actions{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
 }
 
 .CartItem__img{
     width: 100px;
     height: 100px;
-    border-radius: 12px;
+    object-fit: cover;
+    border: 1px solid #161617;
+    border-radius: 5px;
+}
+
+button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
 }

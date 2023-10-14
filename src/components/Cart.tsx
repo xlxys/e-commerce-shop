@@ -1,116 +1,30 @@
-import Skeleton from '@mui/material/Skeleton';
-import Paper from '@mui/material/Paper';
-
-
 import CartItem from './CartItem';
 
 import './Cart.css';
-
-
-// export default function SwipeableTemporaryDrawer() {
-//   const [state, setState] = useState({
-//     top: false,
-//     left: false,
-//     bottom: false,
-//     right: false,
-//   });
-
-//   const [selectedTab, setSelectedTab] = useState('Cart'); 
-
-//   const handleTabClick = (tab) => {
-//     setSelectedTab(tab);
-//   };
-
-//   const toggleDrawer = (anchor, open) => (event) => {
-//     if (
-//       event &&
-//       event.type === 'keydown' &&
-//       (event.key === 'Tab' || event.key === 'Shift')
-//     ) {
-//       return;
-//     }
-
-//     setState({ ...state, [anchor]: open });
-//   };
-
-//   const list = (anchor) => (
-//     <Box
-//       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 350 }}
-//       role="presentation"
-//       onClick={toggleDrawer(anchor, false)}
-//       onKeyDown={toggleDrawer(anchor, false)}
-//     >
-//             <div className='list__name'>
-//         <h2
-//           className={selectedTab === 'Cart' ? 'selected' : ''}
-//           onClick={() => handleTabClick('Cart')}
-//         >
-//           Cart
-//         </h2>
-
-//         <h2
-//           className={selectedTab === 'Wish List' ? 'selected' : ''}
-//           onClick={() => handleTabClick('Wish List')}
-//         >
-//           Wish List
-//         </h2>
-//       </div>
-//       <Divider />
-//       <List>
-
-//         <CartItem id="2"/>
-//         <CartItem id="3"/>
-//         <CartItem id="4"/>
-    
-//         <Paper elevation={3}>
-//         <Skeleton variant="rectangular" animation="wave"  width={350} height={125} />
-//         </Paper>
-//         <Paper elevation={3}>
-//         <Skeleton variant="rectangular" animation="wave"  width={350} height={125} />
-//         </Paper>
-//         <Paper elevation={3}>
-//         <Skeleton variant="rectangular" animation="wave"  width={350} height={125} />
-//         </Paper>
-     
-//       </List>
-      
-//     </Box>
-//   );
-
-//   return (
-//     <div>
-//         <Fragment key={"right"}>
-//           <IconButton onClick={toggleDrawer("right", true)} size="large" aria-label="search" color="inherit">
-//             <i className="fa-solid fa-cart-shopping fa-xl" style={{color: "#f1efef"}}></i>
-//           </IconButton>
-//           <SwipeableDrawer
-//             anchor={"right"}
-//             open={state["right"]}
-//             onClose={toggleDrawer("right", false)}
-//             onOpen={toggleDrawer("right", true)}
-//           >
-//             {list("right")}
-//           </SwipeableDrawer>
-//         </Fragment>
-
-//     </div>
-//   );
-// }
-
 
 import {useState} from 'react';
 import { styled } from '@mui/material/styles';
 
 import Drawer from '@mui/material/Drawer';
-
-
+import Badge, { BadgeProps } from '@mui/material/Badge';
 import List from '@mui/material/List';
-
+import Paper from '@mui/material/Paper';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { useShoppingCart } from '../context/ShoppingCartContext';
 
-const drawerWidth = 400;
+import articles from '../data/articles.json';
+
+
+const drawerWidth = 350;
+
+const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
+  '& .MuiBadge-badge': {
+    right: 10,
+    top: 15,
+    padding: '0 4px',
+  },
+}));
 
 
 const DrawerHeader = styled('div')(({ theme }) => ({
@@ -118,10 +32,25 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   alignItems: 'center',
   padding: theme.spacing(0, 1),
   ...theme.mixins.toolbar,
-  justifyContent: 'flex-end',
+  justifyContent: 'center',
 }));
 
 export default function PersistentDrawerLeft() {
+
+  function calcTotaleCart() {
+    let totale = 0;
+    cartItems.forEach(item => {
+      const article = articles.find((article) => article.id === item.id);
+      if(article) {
+        totale += article.price * item.quantity;
+      }
+    });
+    return totale;
+  }
+
+
+  const { cartItems, cartQuantity } = useShoppingCart();
+
   const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
@@ -134,9 +63,11 @@ export default function PersistentDrawerLeft() {
 
   return (
     <>
-      <IconButton onClick={handleDrawerOpen} size="large" aria-label="search" color="inherit">
+      <StyledBadge badgeContent={cartQuantity} color="error">
+      <IconButton onClick={handleDrawerOpen}  aria-label="cart" color="inherit">
            <i className="fa-solid fa-cart-shopping" style={{color: "#f1efef"}}></i>
       </IconButton>
+      </StyledBadge>
       <Drawer
         sx={{
           width: drawerWidth,
@@ -151,18 +82,21 @@ export default function PersistentDrawerLeft() {
       >
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
-            <ChevronRightIcon /> 
+          <i className="fa-solid fa-xmark"></i>
           </IconButton>
         </DrawerHeader>
         <Divider />
         <List>
-          <CartItem id="2"/>
-          <CartItem id="3"/>
-          <CartItem id="4"/>
+          {cartItems.map((item) => (
+            <CartItem key={item.id} id={item.id} quantity={item.quantity}/>
+          ))}
         </List>
         <Divider />
         <Paper elevation={3}>
-          <Skeleton variant="rectangular" animation="wave"  width={400} height={125} />
+          <div className="Cart__total">
+            <h3>Total :</h3>
+            <p>{calcTotaleCart()}</p>
+          </div>
         </Paper>
       </Drawer>
     </>

@@ -3,20 +3,22 @@ import React, { useState } from 'react';
 import './Article.css';
 
 import Paper from '@mui/material/Paper';
-
-
+import { useShoppingCart } from '../context/ShoppingCartContext';
 
 interface ArticleProps {
   id : number;
   title: string;
-  price: string;
+  price: number;
   image: string;
   hoverImage: string;
 }
 
 function Article(props: ArticleProps) {
+  const { addToCart , getItemQuantity}  = useShoppingCart();
+ 
   const [isHovered, setIsHovered] = useState(false);
 
+  const cartQuantity = getItemQuantity(props.id);
 
 
   return (
@@ -40,9 +42,25 @@ function Article(props: ArticleProps) {
           alt={props.title}
         />
         <div className='article__overlay' >
-          <div hidden={!isHovered} className='article__button'><i className="fa-solid fa-cart-plus" style={{ color: "#ffffff" }}></i></div>
-          <div  hidden={!isHovered} className='article__button' > <i className="fa-solid fa-heart-circle-plus" style={{ color: "#ffffff" }}></i></div>
-          {/* <button className='article__button'><i className="fa-solid fa-heart-circle-check"></i></button> */}
+          <div hidden={!isHovered} onClick={() => addToCart(props.id)} className='article__button'>
+            {cartQuantity > 0  ?
+            <i className="fa-solid fa-cart-shopping" style={{ color: "#ffffff" }}></i>
+            :
+            <i className="fa-solid fa-cart-plus" style={{ color: "#ffffff" }}></i>
+          }
+          </div>
+          
+          
+          <div  hidden={!isHovered} className='article__button' > 
+         
+            {/* <i className="fa-solid fa-heart-circle-check" style={{ color: "#ffffff" }}></i> */}
+            
+            <i className="fa-solid fa-heart-circle-plus" style={{ color: "#ffffff" }}></i>
+          
+          </div>
+
+          
+
         </div>
 
         <h3 className='article__title'>{props.title}</h3>

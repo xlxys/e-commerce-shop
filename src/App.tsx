@@ -8,6 +8,7 @@ import Banner from './components/Banner';
 import Categories from './components/Categories';
 import Products from './components/Products';
 import Footer from './components/Footer';
+import { ShoppingCartProvider } from './context/ShoppingCartContext';
 
 
 const theme = createTheme({
@@ -22,6 +23,7 @@ const theme = createTheme({
       main: '#5B9A8B',
       light: '#F7E987',
     }
+    
   },
   components: {
     MuiTextField: {
@@ -77,6 +79,7 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
+      <ShoppingCartProvider>
     <div className="App">
       <Header />
       <Banner />
@@ -84,6 +87,7 @@ function App() {
       <Products />
       <Footer />
     </div>
+      </ShoppingCartProvider>
     </ThemeProvider >
   );
 }
